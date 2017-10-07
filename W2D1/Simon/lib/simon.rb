@@ -45,7 +45,7 @@ class Simon
     add_random_color
 
     seq.each do |color|
-      puts color.upcase
+      puts "\n#{color}"
       sleep(1)
       system("clear")
       sleep(0.25)
@@ -55,10 +55,10 @@ class Simon
   end
 
   def require_sequence
-    seq.each do |color|
-      system("clear")
-      puts "What's the next color?"
+    puts "Repeat the sequence of colors one color at a time."
+    puts "Please enter each color on a new line."
 
+    seq.each do |color|
       input = gets.chomp
       if color != input
         @game_over = true
@@ -72,11 +72,12 @@ class Simon
   end
 
   def round_success_message
-    puts "Successful round!"
+    puts "Successful round! Here's the next sequence!"
   end
 
   def game_over_message
     puts "That's not right! Game over!"
+    puts "You completed #{@sequence_length - 1} rounds."
   end
 
   def reset_game
