@@ -1,3 +1,6 @@
+# Estimating that it will take about 4,100 seconds, or a little over an hour
+# to run an input of size 100,000 for bubble_sort.... Damn that's a long time...
+
 #!/usr/bin/env ruby
 require 'io/console'
 require 'benchmark'
