@@ -1,0 +1,185 @@
+html {
+	position: relative;
+	height: 100%;
+}
+
+body {
+	width: 80%;
+	margin: 0 auto;
+	font-family: $serif;
+	font-size: 12px;
+  background-color: $dark-gray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-left: 5px solid black;
+  border-right: 5px solid black;
+}
+
+.button {
+	background-color: $green;
+	border-color: $dark-gray;
+	color: white;
+	font-weight: 400;
+	padding: 5px 10px;
+	border-radius: 3px;
+	transition: 0.1s;
+	font-family: $sans-serif;
+	text-transform: uppercase;
+	font-size: 12px;
+	text-align: center;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  // justify-content: space-around;
+  border-bottom: 2px solid $dark-gray;
+  margin-top: 20px;
+  margin-bottom: 40px;
+	padding: 5px;
+}
+
+header h1 {
+  margin-right: 50px;
+}
+
+header nav ul {
+  display: flex;
+}
+
+header nav li {
+  margin: 10px;
+}
+
+ul li {
+  color: $green;
+  font-size: 14px;
+  margin: 10px;
+}
+
+.select{
+	display: flex;
+	justify-content: space-between;
+}
+
+select {
+	background-color: $gray;
+	color: $green;
+}
+
+.recording {
+	display: flex;
+	align-content: center;
+	justify-content: space-between;
+}
+
+.recording input {
+	position: relative;
+	top: 6px;
+}
+
+.hidden {
+	display: none;
+}
+
+.button:hover {
+	border-color: $green;
+  background-color: $hi-lite-green;
+  font-size: 13px;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+h1 {
+	font-size: 80px;
+	font-weight: 700;
+  color: $green;
+  font-family: $sans-serif;
+  text-transform: uppercase;
+}
+
+h1 a:hover {
+  text-decoration: none;
+  color: $hi-lite-green;
+  font-size: 81px;
+}
+
+h2 {
+	font-size: 40px;
+	font-weight: 700;
+  color: $green;
+  font-family: $sans-serif;
+}
+
+h3 {
+	font-size: 16px;
+}
+
+iframe {
+	width: 95%;
+}
+
+sub {
+	color: $gray;
+	font-size: 14px;
+	margin-bottom: 15px;
+}
+
+p {
+	margin: 10px 0px;
+	line-height: 1.5;
+}
+
+footer {
+	display: flex;
+	margin: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 20px;
+  display: flex;
+  padding: 15px;
+  color: $green;
+}
+
+input {
+	flex: 1;
+	border: 1px solid $gray;
+	border-radius: 3px;
+  font-size: 20px;
+}
+
+label input {
+  margin-left: 25px;
+}
+
+.small {
+	font-size: 10px;
+}
+/*
+	Header Rules
+*/
+
+hr {
+	border: 0;
+	height: 1px;
+	background-color: $light-gray;
+}
+
+.hr-top, .hr-bottom {
+	width: 100%;
+	margin: 0;
+}
+
+.hr-top {
+	height: 2px;
+	margin-bottom: 1px;
+}

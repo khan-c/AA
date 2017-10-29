@@ -1,0 +1,13 @@
+<h2>Band of Bands</h2>
+
+<% if @bands %>
+  <ul>
+    <% @bands.each do |band| %>
+      <li><a href="<%= band_url(band) %>"><%= band.name %></a></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<form class="" action="<%= new_band_url %>" method="get">
+  <input class="button" type="submit" value="Add a band">
+</form>
