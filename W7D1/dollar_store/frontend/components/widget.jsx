@@ -1,6 +1,7 @@
 import React from 'react';
 import Currency from './currency';
 import selectCurrency from '../actions';
+import CurrencyName from './currency_name';
 
 class Widget extends React.Component {
 
@@ -48,9 +49,11 @@ class Widget extends React.Component {
 
     const currencyNames = Object.keys(rates);
     const currencyRates = currencyNames.map( (currency) => (
-      <Currency name={ currency }
-                rate={ rates[currency] }
-                key={ currency } />
+      <li key={ currency }>
+        <CurrencyName name={ currency } />
+        <Currency name={ currency }
+          rate={ rates[currency] } />
+      </li>
       )
     );
 
@@ -63,9 +66,9 @@ class Widget extends React.Component {
           Get Rates:
           { currencyOptions }
         </div>
-        <div className="rates-list">
+        <ul className="rates-list">
           { currencyRates }
-        </div>
+        </ul>
       </div>
     );
   }
