@@ -11,9 +11,12 @@ class BinaryMinHeap
   end
 
   def extract
+    raise 'no element to extract' if count == 0
+
     @store[0], @store[count - 1] = @store[count - 1], @store[0]
     val = @store.pop
     BinaryMinHeap.heapify_down(@store, 0, &@prc)
+    
     val
   end
 
@@ -28,11 +31,15 @@ class BinaryMinHeap
 
   public
   def self.child_indices(len, parent_index)
-    children = []
-    child1, child2 = 2 * parent_index + 1, 2 * parent_index + 2
-    children.push(child1) if child1 < len
-    children.push(child2) if child2 < len
-    children
+    # children = []
+    # child1, child2 = 2 * parent_index + 1, 2 * parent_index + 2
+    # children.push(child1) if child1 < len
+    # children.push(child2) if child2 < len
+    # children
+
+    [2 * parent_index + 1, 2 * parent_index + 2].select do |el|
+      el < len
+    end
   end
 
   def self.parent_index(child_index)
@@ -64,15 +71,13 @@ class BinaryMinHeap
   def self.heapify_up(array, child_idx, len = array.length, &prc)
     prc ||= Proc.new { |a, b| a <=> b }
 
-    if child_idx == 0
-      return array
-    end
+    return array if child_idx == 0
 
     parent_idx = BinaryMinHeap.parent_index(child_idx)
 
     if prc.call(array[child_idx], array[parent_idx]) < 0
       array[child_idx], array[parent_idx] = array[parent_idx], array[child_idx]
-      BinaryMinHeap.heapify_up(array, parent_idx, &prc)
+      BinaryMinHeap.heapify_up(array, parent_idx, len, &prc)
     end
 
     return array
