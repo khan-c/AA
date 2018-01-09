@@ -1,10 +1,11 @@
 class Vertex
-  attr_accessor :value, :in_edges, :out_edges
+  attr_accessor :value, :in_edges, :out_edges, :mark
 
   def initialize(value)
     @value = value
     @in_edges = []
     @out_edges = []
+    @mark = "none"
   end
 end
 
