@@ -84,8 +84,10 @@ class BinarySearchTree
   end
 
   def depth(tree_node = @root)
+    return 0 if tree_node.nil?
     r_depth = 0
     l_depth = 0
+
     if tree_node.right
       r_depth += depth(tree_node.right) + 1
     end
@@ -94,26 +96,30 @@ class BinarySearchTree
       l_depth += depth(tree_node.left) + 1
     end
 
-    return r_depth > l_depth ? r_depth : l_depth
+    # return r_depth > l_depth ? r_depth : l_depth
+    [r_depth, l_depth].max
   end
 
   def is_balanced?(tree_node = @root)
+    return true if tree_node.nil?
     r = depth(tree_node.right)
     l = depth(tree_node.left)
-    l < r + 1 && l > r - 1
+    r_balance = is_balanced?(tree_node.right)
+    l_balance = is_balanced?(tree_node.left)
+    l < r + 1 && l > r - 1 && r_balance && l_balance
   end
 
   def in_order_traversal(tree_node = @root, arr = [])
-    return [tree_node.value] if tree_node.right.nil? && tree_node.left.nil?
+    # return [tree_node.value] if tree_node.right.nil? && tree_node.left.nil?
 
     if tree_node.left
-      arr = in_order_traversal(tree_node.left, arr)
+      in_order_traversal(tree_node.left, arr)
     end
 
-    arr += [tree_node.value]
+    arr.push(tree_node.value)
 
     if tree_node.right
-      arr += in_order_traversal(tree_node.right)
+      in_order_traversal(tree_node.right, arr)
     end
 
     arr
