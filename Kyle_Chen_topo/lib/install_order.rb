@@ -15,8 +15,7 @@ def install_order(arr)
   max = nil
 
   arr.each do |tuple|
-    max = tuple[0] if max.nil? || tuple[0] > max
-    max = tuple[1] if tuple[1] > max
+    max = tuple.max if max.nil? || tuple.max > max
 
     v_hash[tuple[0]] = Vertex.new(tuple[0]) unless v_hash[tuple[0]]
     v_hash[tuple[1]] = Vertex.new(tuple[1]) unless v_hash[tuple[1]]
